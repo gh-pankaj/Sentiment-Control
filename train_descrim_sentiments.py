@@ -443,4 +443,4 @@ plt.xlabel('Predicted')
 plt.show()
 
 
-shutil.copyfile('SST_classifier_head_epoch_'+epochs+'.pt', 'SST_classifier_head.pt')
+shutil.copyfile('SST_classifier_head_epoch_'+str(epochs)+'.pt', 'SST_classifier_head.pt')

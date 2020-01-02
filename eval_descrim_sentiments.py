@@ -12,6 +12,11 @@ from pplm_classification_head import ClassificationHead
 from transformers.file_utils import cached_path
 import time
 import json
+import os
+
+#This is done to fix an issue on mac os with xgboost and matplotlib. Please comment this line if using in any other OS
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
+
 
 num_samples=5
 eval_dataset_type="preference"

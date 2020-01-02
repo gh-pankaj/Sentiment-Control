@@ -25,6 +25,9 @@ discrim_weights="SST_classifier_head.pt"
 eval_dataset_type="opinion"
 eval_response_files={"preference": "response-preference-sentiment.json", "opinion": "response-opinion-sentiment.json"}
 
+idx2class = ["positive", "neutral","negative"]
+class2idx = {c: i for i, c in enumerate(idx2class)}
+
 with open(eval_response_files[eval_dataset_type], 'r') as f:
   responses=json.load(f)
 
@@ -276,8 +279,6 @@ no_cuda=False
 
 device = "cuda" if torch.cuda.is_available() and not no_cuda else "cpu"
 
-idx2class = ["positive", "neutral","negative"]
-class2idx = {c: i for i, c in enumerate(idx2class)}
 
 with open(discrim_meta_file, 'r') as f:
     discrim_meta = json.load(f)
@@ -415,5 +416,3 @@ sns.heatmap(conf_mat, annot=True, fmt='d',
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
 plt.show()
-
-
